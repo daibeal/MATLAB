@@ -18,9 +18,22 @@ end
 
 nclasses = 10; %salidas
 [x,y,ch,N]= size(XTrain); 
+%[x,y,ch,~]= size(XTrain);  Si N no interesa sacar
+nfeatures = 2^8;
 layers = [...
     
-    imageInputLayer([28 28 1])
+    imageInputLayer([x y ch], 'Name', 'Capa de entrada')
+    fullyConnectedLayer(nfeatures,'Name', 'Capa oculta') %Conecta las capas
+    %Función de activación ~ Relu
+    reluLayer('Name', 'Relu')
+    fullyConnectedLayer(nclasses,'Name', 'Capa de salida')%Conecta las capas
+    %Función de activación
+    softmaxLayer('Name','Softmax')
+    classificationLayer('Name','Clases')
 
+];
+grafo_capas = layerGraph(layers);
+figure(2)
+plot(grafo_capas)
+%% Entrenamiento [Easy]
 
-]

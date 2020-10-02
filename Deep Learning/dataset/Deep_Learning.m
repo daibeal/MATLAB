@@ -23,8 +23,17 @@ nfeatures = 2^8;
 layers = [...
     
     imageInputLayer([x y ch], 'Name', 'Capa de entrada')
-    fullyConnectedLayer(nfeatures) %Conecta las capas
+    fullyConnectedLayer(nfeatures,'Name', 'Capa oculta') %Conecta las capas
     %Función de activación ~ Relu
-    
+    reluLayer('Name', 'Relu')
+    fullyConnectedLayer(nclasses,'Name', 'Capa de salida')%Conecta las capas
+    %Función de activación
+    softmaxLayer('Name','Softmax')
+    classificationLayer('Name','Clases')
 
-]
+];
+grafo_capas = layerGraph(layers);
+figure(2)
+plot(grafo_capas)
+%% Entrenamiento [Easy]
+

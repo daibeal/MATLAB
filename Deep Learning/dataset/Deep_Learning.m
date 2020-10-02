@@ -36,4 +36,35 @@ grafo_capas = layerGraph(layers);
 figure(2)
 plot(grafo_capas)
 %% Entrenamiento [Easy]
+options = trainingOptions('adam',...
+                            'Shuffle','every-epoch', ...
+                            'MaxEpochs', 100, ...
+                            'MiniBatchSize', 10, ...
+                            'ValidationData', {XTest, YTest},...
+                            'ValidationFrequency',10,...
+                            'Plots', 'training-progress');
+net = trainNetwork(XTrain, YTrain, layers, options);
+%% Validación
+
+YTrain_pred = predict(net, XTrain);
+
+[M,I] = max(YTrain_pred,[],2);
+I = categorical(I-1);
+%Comparar con el vector verdadero XTrain
+    %Confusion Matrix
+    CTrain = confusionmat(YTrain,I);
+    figure(3)
+    confusionchart(CTrain)
+    
+    %Part 2
+    
+    YTest_pred = predict(net, XTest);
+
+[M,I] = max(YTest_pred,[],2);
+YTest_pred = categorical(I-1);
+%Comparar con el vector verdadero XTrain
+    %Confusion Matrix
+    CTest = confusionmat(YTest,YTest_pred);
+    figure(4)
+    confusionchart(CTest)
 

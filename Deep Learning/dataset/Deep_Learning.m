@@ -19,9 +19,12 @@ end
 nclasses = 10; %salidas
 [x,y,ch,N]= size(XTrain); 
 %[x,y,ch,~]= size(XTrain);  Si N no interesa sacar
+nfeatures = 2^8;
 layers = [...
     
     imageInputLayer([x y ch], 'Name', 'Capa de entrada')
-
+    fullyConnectedLayer(nfeatures) %Conecta las capas
+    %Función de activación ~ Relu
+    
 
 ]

@@ -1,4 +1,5 @@
 # Image Processing Toolbox Applications
+![alt text](https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/28445/versions/6/screenshot.gif)
 
 This project is an introduction to the development of applications based on intelligent image processing using MatLab's Image Processing Toolbox.
 

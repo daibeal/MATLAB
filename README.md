@@ -4,6 +4,6 @@ This repo contains code from online Matlab courses
 <!-- CONTACT -->
 ## Contact
 
-Dairon Andrés Benites Aldaz - [@daibeal26](https://twitter.com/daibeal) - daibeal@inf.upv.es
+Dairon Andrés Benites Aldaz - [@AldazDairon](https://twitter.com/AldazDairon) - daibeal@inf.upv.es
 
 Project Link: [https://github.com/daibeal/MATLAB](https://github.com/daibeal/MATLAB)
